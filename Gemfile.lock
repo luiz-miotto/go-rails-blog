@@ -322,6 +322,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bundler (~> 2.6)
   capybara
   debug
   devise (~> 4.9)
