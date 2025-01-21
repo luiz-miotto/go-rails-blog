@@ -3,7 +3,13 @@
 <% @blog_posts.each do |blog_post| %>
   <div>
     <!--you're able to pass along just an object record because rails knows to use its id as the argument to the path method. you could even drop the blog_bost_path and simply have blog_post and it would still work -->
+
     <h2><%= link_to blog_post.title, blog_post_path(blog_post)%></h2>
+    <% if blog_post.draft? %>
+      <div class="p-2 rounded bg-gray-100 text-gray-900"> Draft </div>
+      <% elsif blog_post.scheduled? %>
+      <div class="p-2 rounded bg-gray-100 text-blue-900"> Scheduled </div>
+    <% end %>
   <%= blog_post.body %>
   </div>
 <% end %>
